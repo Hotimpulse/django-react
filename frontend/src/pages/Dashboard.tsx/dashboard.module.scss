@@ -1,8 +1,8 @@
+@import '../../shared/ui/index';
+
 .main {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgb(104, 51, 51);
+  background-color: $gray-900;
   width: 100%;
   height: 100%;
   overflow-x: hidden;
@@ -12,14 +12,15 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: clamp(20rem, 25vw, 22rem);
+    width: 100%;
+    max-width: 10vw;
     height: 100vh;
-    background-color: white;
+    background-color: $primary;
 
     .logo {
       display: flex;
-      width: 100%;
-      height: 10rem;
+      width: fit-content;
+      height: fit-content;
     }
 
     .menu_container {
@@ -30,15 +31,16 @@
       .btn {
         display: flex;
         gap: 1rem;
-        width: 200px;
-        background-color: red;
+        width: 100%;
+        max-width: 200px;
+        background-color: $gray-900;
         border-radius: 0.2em;
         padding: 0.75rem 1rem;
-        color: white;
+        color: $gray-100;
         cursor: pointer;
 
         &:hover {
-          opacity: 0.9;
+          opacity: 0.4;
         }
       }
     }
@@ -55,7 +57,6 @@
     .top_bar_wrapper {
       display: flex;
       width: 100%;
-      background-color: rgba(255, 255, 255, 0.151);
       justify-content: space-between;
     }
 
@@ -82,7 +83,7 @@
       max-width: 500px;
       width: 20rem;
       height: 10rem;
-      background-color: #f0f0f0;
+      background-color: $gray-100;
       border-radius: 0.5rem;
     }
 
@@ -115,7 +116,7 @@
         width: 100%;
         max-width: 20rem;
         height: 10rem;
-        background-color: aqua;
+        background-color: $secondary;
         border-radius: 0.5rem;
         margin-bottom: 2rem;
       }
@@ -127,7 +128,7 @@
         align-items: center;
         width: 100%;
         min-height: 60vh;
-        background-color: orange;
+        background-color: $third;
         border-radius: 0.5rem;
         padding: 2rem;
       }

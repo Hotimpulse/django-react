@@ -1,11 +1,10 @@
-import Dashboard from '../widgets/Dashboard.tsx/Dashboard';
+import Layout from '../pages/Layout/Layout';
+import Dashboard from '../pages/Dashboard.tsx/Dashboard';
 
 function App() {
   return (
     <>
-      <div>
-        <Dashboard />
-      </div>
+      <Layout children={undefined} />
     </>
   );
 }

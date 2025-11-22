@@ -5,7 +5,7 @@ export default function Dashboard() {
     <div className={styles.main}>
       <aside className={styles.sidebar}>
         <div className={styles.logo}>
-          <img src="/logo.png" alt="Logo" />
+          <img src="../img.png" alt="Logo" />
         </div>
 
         <div className={styles.menu_container}>

@@ -1,0 +1,6 @@
+@import '../../shared/ui/variables';
+
+.main {
+  @include wrapper-col;
+  background-color: red;
+}
