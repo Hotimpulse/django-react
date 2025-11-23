@@ -2,13 +2,7 @@
 
 .wrapper {
   @include wrapper;
+  max-width: 600px;
   min-height: 100vh;
   overflow-x: hidden;
-}
-
-.main {
-  flex: 1;
-  display: flex;
-  position: relative;
-  overflow: hidden;
 }
