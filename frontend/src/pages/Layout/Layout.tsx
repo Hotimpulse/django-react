@@ -1,9 +1,9 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router';
 import { SidebarProvider, SidebarTrigger } from '@src/components/ui/sidebar.tsx';
 import { AppSidebar } from '@src/components/AppSidebar.tsx';
 import styles from './layout.module.scss';
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default function Layout({ children }: { children?: React.ReactNode }) {
   return (
     <SidebarProvider>
       <AppSidebar />

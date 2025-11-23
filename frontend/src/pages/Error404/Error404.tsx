@@ -1,13 +1,14 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@src/components/ui/card';
 import MyButton from '@src/shared/ui/Buttons/MyButton';
-
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useRouteError } from 'react-router-dom';
 
 export default function Error404() {
   const navigate = useNavigate();
+  const error = useRouteError();
 
   return (
     <div className="flex max-w-[600px] justify-center m-auto items-center p-2">
+      <p>{error.message}</p>
       <Card className="w-full mt-52 text-center">
         <CardHeader>
           <CardTitle>Кажется, вы заблудились...</CardTitle>
