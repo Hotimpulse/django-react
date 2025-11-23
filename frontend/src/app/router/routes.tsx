@@ -55,13 +55,4 @@ export const privateAdminRoutes: JSX.Element[] = [
       </Suspense>
     }
   />,
-  // <Route
-  //   key={'2'}
-  //   path="/dashboard/adminform/:userId"
-  //   element={
-  //     <Suspense fallback={<Skeleton />}>
-  //       <LazyAdminRenderTable />
-  //     </Suspense>
-  //   }
-  // />,
 ];
