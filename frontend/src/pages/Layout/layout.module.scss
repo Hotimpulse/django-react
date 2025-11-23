@@ -1,6 +1,14 @@
 @import '../../shared/ui/variables';
 
-.main {
+.wrapper {
   @include wrapper-col;
-  background-color: red;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  position: relative;
+  overflow: hidden;
 }

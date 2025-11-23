@@ -1,10 +1,11 @@
-import Layout from '../pages/Layout/Layout';
-import Dashboard from '../pages/Dashboard.tsx/Dashboard';
+import { RouterProvider } from 'react-router-dom';
+import useCustomRouter from '@src/app/router/useCustomRouter';
 
 function App() {
+  const routes = useCustomRouter();
   return (
     <>
-      <Layout children={undefined} />
+      <RouterProvider router={routes} />
     </>
   );
 }
