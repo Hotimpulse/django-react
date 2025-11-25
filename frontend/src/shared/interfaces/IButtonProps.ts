@@ -1,5 +1,5 @@
 export interface IButtonProps {
-  type?: string;
+  type?: 'button' | 'submit' | 'reset';
   buttonText: string;
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   disabled?: boolean;

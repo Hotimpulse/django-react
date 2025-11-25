@@ -1,0 +1,20 @@
+@use '../../shared/ui/variables';
+
+.main {
+  @include variables.wrapper-col;
+  background-color: var(--color-primary);
+  max-width: 600px;
+  border-radius: 0.2em;
+  padding: 1rem;
+}
+
+.wrapper {
+  @include variables.wrapper-col;
+}
+
+input {
+  display: flex;
+  padding: 1rem;
+  border-radius: 0.2em;
+  background-color: var(--background);
+}

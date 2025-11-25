@@ -1,3 +1,5 @@
+@import "tailwindcss/preflight"
+@tailwind utilities;
 @import 'tailwindcss';
 @import 'tw-animate-css';
 @import './../shared/ui/_variables.scss';
@@ -52,11 +54,10 @@
 }
 
 body {
-  background-color: var(--primary);
+  background-color: var(--primary-foreground);
 }
 
 @theme inline {
-  --bg-color1: #53f544;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);

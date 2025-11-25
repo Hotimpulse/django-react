@@ -1,5 +1,5 @@
+import Form from '@src/components/form/Form';
+
 export default function Login() {
-  return (
-    <div>Login</div>
-  )
+  return <Form route={'/api/token'} method={'login'}></Form>;
 }
