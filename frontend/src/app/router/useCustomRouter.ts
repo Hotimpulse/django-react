@@ -5,6 +5,7 @@ import Dashboard from '@src/pages/Dashboard/Dashboard';
 import Layout from '@src/pages/Layout/Layout';
 import Form from '@src/components/form/Form';
 import Error404 from '@src/pages/Error404/Error404';
+import ProtectedRoute from './ProtectedRoute';
 
 export default function useCustomRouter() {
   const router = createBrowserRouter([
@@ -19,7 +20,14 @@ export default function useCustomRouter() {
           path: 'register',
           Component: () => React.createElement(Form, { route: 'api/user/register/', method: 'register' }),
         },
-        { path: 'dashboard', Component: Dashboard },
+        {
+          path: 'dashboard',
+          Component: () =>
+            React.createElement(ProtectedRoute, {
+              children: React.createElement(Dashboard),
+            }),
+        },
+        {},
       ],
     },
   ]);

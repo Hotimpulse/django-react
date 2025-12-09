@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router';
 import styles from './form.module.scss';
 import MyButton from '@src/shared/ui/Buttons/MyButton';
 import { BASE_DB_URL } from '@src/shared/utils/globals';
+import Spinner from '../Spinner';
 
 type TFormProps = {
   route: string;
@@ -27,8 +28,8 @@ export default function Form({ route, method }: TFormProps) {
           headers: {
             'Content-Type': 'application/json',
           },
-          credentials: 'include',
           body: JSON.stringify({ username, password }),
+          credentials: 'include',
         });
 
         if (!response.ok) {
@@ -36,9 +37,7 @@ export default function Form({ route, method }: TFormProps) {
         }
 
         const data = await response.json();
-        const { refreshToken, accessToken } = data;
-        localStorage.setItem(accessToken, data.access);
-        localStorage.setItem(refreshToken, data.access);
+        localStorage.setItem('access', data.access);
         navigate('/');
       } else if (method === 'register') {
         const response = await fetch(`${BASE_DB_URL}/${route}`, {
@@ -46,7 +45,6 @@ export default function Form({ route, method }: TFormProps) {
           headers: {
             'Content-Type': 'application/json',
           },
-          credentials: 'include',
           body: JSON.stringify({ username, password }),
         });
 
@@ -55,9 +53,7 @@ export default function Form({ route, method }: TFormProps) {
         }
 
         const data = await response.json();
-        const { refreshToken, accessToken } = data;
-        localStorage.setItem(accessToken, data.access);
-        localStorage.setItem(refreshToken, data.access);
+        localStorage.setItem('access', data.access);
         navigate('/');
       }
       setLoading(false);
@@ -69,25 +65,32 @@ export default function Form({ route, method }: TFormProps) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className={styles.main}>
-      <div className={styles.wrapper}>
-        <h1>{name}</h1>
-        <label htmlFor="username">Username</label>
-        <input
-          type="text"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          placeholder="Type in your username"
-        />
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Type in your password"
-        />
-      </div>
-      <MyButton type={'submit'} buttonText={name} />
-    </form>
+    <>
+      <form onSubmit={handleSubmit} className={styles.main}>
+        <div className={styles.wrapper}>
+          <h1>{name}</h1>
+          <label htmlFor="username">Username</label>
+          <input
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            placeholder="Type in your username"
+          />
+          <label htmlFor="password">Password</label>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Type in your password"
+          />
+        </div>
+        <MyButton type={'submit'} buttonText={name} />
+        {loading && (
+          <div className="flex items-center justify-center w-64 h-64">
+            <Spinner />
+          </div>
+        )}
+      </form>
+    </>
   );
 }
