@@ -3,14 +3,12 @@ import { JSX, useEffect, useState } from 'react';
 import { Navigate } from 'react-router';
 
 export default function ProtectedRoute({ children }: { children: JSX.Element }) {
-  const [isAuthorized, setIsAuthorized] = useState<boolean>(false);
+  const [isAuthorized, setIsAuthorized] = useState<boolean | null>(null);
+  console.log('🚀 ~ ProtectedRoute ~ isAuthorized:', isAuthorized);
 
   const refreshToken = async () => {
-    const refresh = JSON.parse(localStorage.getItem('refresh') || '');
-    if (!refresh) return false;
-
     try {
-      const res = await fetch('/api/refresh/token/', {
+      const res = await fetch('/api/token/refresh/', {
         method: 'POST',
         credentials: 'include',
       });
@@ -55,9 +53,9 @@ export default function ProtectedRoute({ children }: { children: JSX.Element }) 
 
       if (decoded.exp < now) {
         const refreshed = await refreshToken();
-        setIsAuthorized(!refreshed);
+        if (refreshed != null) setIsAuthorized(refreshed);
       } else {
-        setIsAuthorized(false);
+        setIsAuthorized(true);
       }
     };
 
